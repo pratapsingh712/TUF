@@ -1,6 +1,6 @@
 package patterns;
 
-public class AlphaTrianglePattern {
+public class Pattern18_AlphaTrianglePattern {
     public static void main(String[] args) {
 
 //        for(char i = 'E'; i>='A'; i--){
