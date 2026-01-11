@@ -12,5 +12,12 @@ public class CountDigit {
         }
 
         System.out.println("Number of digit in num = "+count);
+
+        // now let's try an efficient way
+
+        int num2 = 12345;
+
+        int digit = (int) (Math.log10(num2)+1);
+        System.out.println("Number of digit in num = "+digit);
     }
 }
