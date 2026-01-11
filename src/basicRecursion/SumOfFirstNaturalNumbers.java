@@ -19,9 +19,8 @@ public class SumOfFirstNaturalNumbers {
             return sum;
         }
 
-        fun(num-1,sum+num);
+        return fun(num-1,sum+num);
 
-        return sum;
     }
 
 
