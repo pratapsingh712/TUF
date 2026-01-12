@@ -1,5 +1,7 @@
 package basicHashing;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CountFrequencyOfElementArray {
@@ -18,33 +20,47 @@ public class CountFrequencyOfElementArray {
             array[i] = sc.nextInt();
         }
 
-        countFrequency(array,visited);
+//        countFrequency(array,visited); this is for brute force approach
+
+        countFrequency(array);
 
     }
 
-    private static void countFrequency(int[] array, boolean[] visited) {
-        int n = array.length;
+    // Now the Optimal solution will be to use the Unordered Map
 
-        for(int i=0;i<n;i++){
-            int count = 1;
+    public static void countFrequency(int[] array){
+        Map<Integer,Integer> frequencyArray = new HashMap<>();
 
-            if(visited[i]){
-                continue;
-            }
-
-            for(int j=i+1;j<n;j++){
-                if(array[i]==array[j]){
-                    count++;
-                    visited[j] = true;
-                }
-            }
-
-            System.out.println("Count of "+array[i]+" is = "+count);
+        for(Integer key : array){
+            frequencyArray.put(key,frequencyArray.getOrDefault(key,0)+1);
         }
 
-//        for(Boolean value : visited){
-//            System.out.println(value);
-//        }
-
+        frequencyArray.forEach((key,value)-> System.out.println(key+" : "+value));
     }
+
+//    private static void countFrequency(int[] array, boolean[] visited) {
+//        int n = array.length;
+//
+//        for(int i=0;i<n;i++){
+//            int count = 1;
+//
+//            if(visited[i]){
+//                continue;
+//            }
+//
+//            for(int j=i+1;j<n;j++){
+//                if(array[i]==array[j]){
+//                    count++;
+//                    visited[j] = true;
+//                }
+//            }
+//
+//            System.out.println("Count of "+array[i]+" is = "+count);
+//        }
+//
+////        for(Boolean value : visited){
+////            System.out.println(value);
+////        }
+//
+//    }
 }
