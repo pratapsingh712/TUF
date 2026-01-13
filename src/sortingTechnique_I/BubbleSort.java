@@ -26,7 +26,7 @@ public class BubbleSort {
     private static void bubbleSort(int[] array) {
 
         for(int i=array.length-1;i>=0;i--){
-            boolean didSwap = false;
+            boolean didSwap = false; // this is a small optimisation in the algorithm to reduce time complexity if array is already sorted
             for(int j=0;j<=i-1;j++){
                 if(array[j]>array[j+1]){
                     //swap
