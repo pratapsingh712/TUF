@@ -26,13 +26,19 @@ public class BubbleSort {
     private static void bubbleSort(int[] array) {
 
         for(int i=array.length-1;i>=0;i--){
+            boolean didSwap = false;
             for(int j=0;j<=i-1;j++){
                 if(array[j]>array[j+1]){
                     //swap
                     int temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;
+                    didSwap = true;
                 }
+            }
+
+            if(!didSwap){
+                break;
             }
         }
 
