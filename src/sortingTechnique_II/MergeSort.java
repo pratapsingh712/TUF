@@ -22,7 +22,7 @@ public class MergeSort {
 
         System.out.println("Original array : "+ Arrays.toString(array));
 
-        divide(array,0,size-1);
+        divide(array);
 
         System.out.print("After sorting the array we get : ");
         for(int i=0;i<size;i++){
@@ -31,45 +31,50 @@ public class MergeSort {
         System.out.println();
     }
 
-    private static void divide(int[] array, int si, int ei) {
-
-        if(si>=ei){
+    private static void divide(int[] inputArray){
+        int size = inputArray.length;
+        if(size<2){
             return;
         }
-        int mid = si+(ei-si)/2;
-        divide(array,si,mid);
-        divide(array,mid+1,ei);
-        conquer(array,si,mid,ei);
+        int mid = size/2;
+        int[] leftArray = new int[mid];
+        int[] rightArray = new int[size-mid];
 
+        // copied all the element of left side from array into leftArray
+        for(int i=0;i<mid;i++){
+            leftArray[i] = inputArray[i];
+        }
+        // copied all the element of right side from array into right Array
+        for(int i=mid;i<size;i++){
+            rightArray[i-mid] = inputArray[i];
+        }
+
+        divide(leftArray);
+        divide(rightArray);
+
+        // Now I should copy both the array into one array
+
+        merge(inputArray,leftArray,rightArray);
     }
 
-    private static void conquer(int[] array, int si, int mid, int ei) {
-        int[] merged = new int[ei-si+1];
+    private static void merge(int[] inputArray, int[] leftArray, int[] rightArray){
+        int i=0, j=0, k=0;
 
-        int idx1 = si;
-        int idx2 = mid+1;
-        int x = 0;
-
-        while(idx1 <= mid && idx2<=ei){
-            if(array[idx1]<=array[idx2]){
-                merged[x] = array[idx1];
-                x++;idx1++;
+        while(i<leftArray.length && j<rightArray.length){
+            if(leftArray[i]<rightArray[j]){
+                inputArray[k++] = leftArray[i++];
             }else{
-                merged[x] = array[idx2];
-                x++;idx2++;
+                inputArray[k++] = rightArray[j++];
             }
         }
 
-        while(idx1<=mid){
-            merged[x++] = array[idx1++];
+        // now clean up from left
+        while(i<leftArray.length){
+            inputArray[k++] = leftArray[i++];
         }
 
-        while(idx2<=ei){
-            merged[x++] = array[idx2++];
-        }
-
-        for(int i=0,j=si;i<merged.length;i++,j++){
-            array[j] = merged[i];
+        while(j<rightArray.length){
+            inputArray[k++] = rightArray[j++];
         }
     }
 }
