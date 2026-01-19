@@ -17,6 +17,8 @@ public class QuickSort {
         System.out.println("Original Array Elements are : "+ Arrays.toString(array));
 
         quickSort(array,0,size-1);
+
+        System.out.println("After sorting Array Elements are : "+ Arrays.toString(array));
     }
 
     private static void quickSort(int[] array, int low, int high) {
@@ -49,8 +51,6 @@ public class QuickSort {
         int temp = array[i+1];
         array[i+1] = array[high];
         array[high] = temp;
-
-        System.out.println(Arrays.toString(array));
 
         return i+1;
     }

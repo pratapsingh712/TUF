@@ -33,6 +33,7 @@ public class MergeSort {
 
     private static void divide(int[] inputArray){
         int size = inputArray.length;
+
         if(size<2){
             return;
         }
