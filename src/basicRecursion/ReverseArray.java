@@ -26,5 +26,6 @@ public class ReverseArray {
 //        right--;
 
         return reverseArray(array,left+1, right-1);
+//        return array; I can write this also as method return array
     }
 }
