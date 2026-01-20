@@ -21,7 +21,7 @@ public class RemoveDuplicateFromSortedArray {
 
         int index = removeDuplicates(array);
 
-        for(int i=0;i<index;i++){
+        for(int i=0;i<=index;i++){
             System.out.print(array[i]+" ");
         }
         System.out.println();
@@ -29,21 +29,34 @@ public class RemoveDuplicateFromSortedArray {
     }
 
     private static int removeDuplicates(int[] array){
+        int i = 0;
 
-        int index = 0;
-
-        HashSet<Integer> seen = new HashSet<>();
-
-        for(Integer num : array){
-            if(!seen.contains(num)){
-                seen.add(num);
-
-                array[index] = num;
-
-                index++;
+        for(int j=1;j<array.length;j++){
+            if(array[i]!=array[j]){
+                i++;
+                array[i] = array[j];
             }
         }
 
-        return index;
+        return i;
     }
+
+//    private static int removeDuplicates(int[] array){
+//
+//        int index = 0;
+//
+//        HashSet<Integer> seen = new HashSet<>();
+//
+//        for(Integer num : array){
+//            if(!seen.contains(num)){
+//                seen.add(num);
+//
+//                array[index] = num;
+//
+//                index++;
+//            }
+//        }
+//
+//        return index;
+//    }
 }
