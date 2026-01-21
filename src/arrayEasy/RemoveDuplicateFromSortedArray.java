@@ -29,16 +29,15 @@ public class RemoveDuplicateFromSortedArray {
     }
 
     private static int removeDuplicates(int[] array){
-        int i = 0;
+        int index = 0;
 
         for(int j=1;j<array.length;j++){
-            if(array[i]!=array[j]){
-                i++;
-                array[i] = array[j];
+            if(array[index]!=array[j]){
+                index++;
+                array[index] = array[j];
             }
         }
-
-        return i;
+        return index;
     }
 
 //    private static int removeDuplicates(int[] array){
