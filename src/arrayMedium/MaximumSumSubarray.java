@@ -23,29 +23,19 @@ public class MaximumSumSubarray {
 
     private static void maximumSumSubArray(int[] array) {
         int sum = 0, maxSum = Integer.MIN_VALUE;
-        int startIndex = 0, endIndex = 0;
+//        int startIndex = 0, endIndex = 0;
 
         for(int i=0;i<array.length;i++){
-            sum = 0;
-            for(int j=i;j<array.length;j++){
-                sum += array[j];
+                sum += array[i];
                 if(maxSum<sum){
                     maxSum = sum;
-                    startIndex = i;
-                    endIndex = j;
                 }
                 if(sum<0){
                     sum = 0;
                 }
-            }
         }
 
         System.out.println("Maximum sum is : "+maxSum);
 
-        System.out.println("SubArray is ");
-        for(int i=startIndex;i<=endIndex;i++){
-            System.out.print(array[i]+" ");
-        }
-        System.out.println();
     }
 }
