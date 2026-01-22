@@ -16,20 +16,39 @@ public class BuySellStock {
     }
 
     private static void maxProfit(int[] array) {
-        int min = Integer.MAX_VALUE;
+        int minPrice = Integer.MAX_VALUE;
         int profit = 0; // assuming if all negative value i will not buy and sell and profit would remain 0
         int maxProfit = 0;
+        int buyDay = -1, sellDay = -1;
+        int index = -1;
 
         for(int i=0;i<array.length;i++){
-            if(array[i]<min){
-                min = array[i];
-            }else if(min<array[i]){
-                profit = array[i]-min;
-                if(profit>maxProfit){
-                    maxProfit = profit;
-                }
+            if(array[i]<minPrice){
+                minPrice = array[i];
+                buyDay = i;
+            }
+
+            profit = array[i] - minPrice;
+
+            if(profit>maxProfit){
+                maxProfit = profit;
+                sellDay = i;
             }
         }
+
+        System.out.println("Maximum profit when you buy on day "+buyDay+" and sell it on "+sellDay+" gives you total of "+maxProfit);
+
+//        for(Integer price : array){
+//            index++;
+//
+//            if(price<minPrice){
+//                minPrice = price;
+//                buyDay = index;
+//            }
+//            maxProfit = Math.max(maxProfit,(price-minPrice));
+//        }
+
+
 
         System.out.println("Maximum profit : "+maxProfit);
     }

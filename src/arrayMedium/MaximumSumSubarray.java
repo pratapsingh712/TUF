@@ -32,6 +32,7 @@ public class MaximumSumSubarray {
             }
 
                 sum += array[i];
+
                 if(maxSum<sum){
                     maxSum = sum;
                     ansStart = startIndex;
