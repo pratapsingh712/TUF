@@ -4,9 +4,35 @@ import java.util.*;
 
 public class Permutation {
     public static void main(String[] args) {
-        int[] nums = {1,2,3};
+        int[] nums = {3,2,1};
+
+        List<Integer> current = new ArrayList<>();
+        for(Integer num : nums){
+            current.add(num);
+        }
+
+        System.out.println("Current : "+current);
         System.out.println("Permutation of "+ Arrays.toString(nums));
-        System.out.println(permute(nums));
+        Arrays.sort(nums);
+
+//        System.out.println(permute(nums));
+
+        List<List<Integer>> listOfList;
+
+        listOfList = permute(nums);
+
+        for(int i=0;i<listOfList.size();i++){
+            if(listOfList.get(i).equals(current)){
+                if(i== listOfList.size()-1){
+                    System.out.println("Next : "+listOfList.get(0));
+                    break;
+                }else {
+                    System.out.println("Next : "+listOfList.get(i+1));
+                    break;
+                }
+            }
+        }
+
     }
 
     private static List<List<Integer>> permute(int[] nums){
