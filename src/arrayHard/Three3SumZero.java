@@ -19,30 +19,20 @@ public class Three3SumZero {
 
     private static void getThree3SumZero(int[] array) {
 
-        List<List<Integer>> result = new ArrayList<>();
-        Set<List<Integer>> seen = new HashSet<>();
+        HashSet<List<Integer>> result = new HashSet<>();
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                for (int k = j + 1; k < array.length; k++) {
+        for(int i=0;i<array.length;i++){
+            HashSet<Integer> hashSet = new HashSet<>();
+            for(int j=i+1;j<array.length;j++){
+                int third = -(array[i]+array[j]);
 
-                    if (array[i] + array[j] + array[k] == 0) {
-
-                        List<Integer> triplet = new ArrayList<>();
-                        triplet.add(array[i]);
-                        triplet.add(array[j]);
-                        triplet.add(array[k]);
-
-                        // sort the triplet to normalize order
-                        Collections.sort(triplet);
-
-                        // add only if not seen before
-                        if (!seen.contains(triplet)) {
-                            seen.add(triplet);
-                            result.add(triplet);
-                        }
-                    }
+                if(hashSet.contains(third)){
+                    List<Integer> temp = new ArrayList<>(Arrays.asList(array[i],array[j],third));
+                    Collections.sort(temp);
+                    result.add(temp);
                 }
+
+                hashSet.add(array[j]);
             }
         }
 
