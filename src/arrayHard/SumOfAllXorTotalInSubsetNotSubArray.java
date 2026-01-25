@@ -41,7 +41,7 @@ public class SumOfAllXorTotalInSubsetNotSubArray {
             List<Integer> copy = new ArrayList<>(subset);
             Collections.sort(copy);   // normalize
 
-            if (seen.contains(copy)) continue;
+            if (seen.contains(copy)) continue; // this is to skip the unwanted list that are duplicate and we have already found their XOR
 
             seen.add(copy);
 
