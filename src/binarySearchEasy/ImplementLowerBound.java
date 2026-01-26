@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class ImplementLowerBound {
     public static void main(String[] args) {
+        // problem statement says array will always be sorted
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of your array :");
         int size = sc.nextInt();
