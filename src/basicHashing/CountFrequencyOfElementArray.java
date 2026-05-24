@@ -37,30 +37,4 @@ public class CountFrequencyOfElementArray {
 
         frequencyArray.forEach((key,value)-> System.out.println(key+" : "+value));
     }
-
-//    private static void countFrequency(int[] array, boolean[] visited) {
-//        int n = array.length;
-//
-//        for(int i=0;i<n;i++){
-//            int count = 1;
-//
-//            if(visited[i]){
-//                continue;
-//            }
-//
-//            for(int j=i+1;j<n;j++){
-//                if(array[i]==array[j]){
-//                    count++;
-//                    visited[j] = true;
-//                }
-//            }
-//
-//            System.out.println("Count of "+array[i]+" is = "+count);
-//        }
-//
-////        for(Boolean value : visited){
-////            System.out.println(value);
-////        }
-//
-//    }
 }
